@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>إمساكية رمضان | متوسطة محمد بن الهيثم بالحناكية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Cairo',sans-serif;
+background:
+radial-gradient(circle at top, rgba(255,215,150,0.25), transparent 60%),
+linear-gradient(to bottom,#0f3d2e,#145a4a,#1e7f6f);
+color:#ffffff;
+text-align:center;
+min-height:100vh;
+}
+header{
+background:rgba(255,255,255,0.95);
+color:#0b4f47;
+padding:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.25)
+}
+header img{max-width:130px}
+h1{margin:10px 0 5px;font-size:22px}
+.date{color:#444;font-size:15px}
+
+.card{
+background:rgba(255,255,255,0.95);
+color:#084c43;
+max-width:420px;
+margin:30px auto 20px;
+padding:25px;
+border-radius:22px;
+box-shadow:0 15px 30px rgba(0,0,0,.35)
+}
+.card h2{color:#128977;margin-bottom:20px}
+
+.time{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px dashed #cfcfcf;
+font-size:18px
+}
+.time:last-child{border-bottom:none}
+
+/* عبارة تحفيزية */
+.quote-box{
+max-width:520px;
+margin:20px auto 10px;
+padding:18px 22px;
+background:linear-gradient(135deg,#1fa187,#26c6a0);
+color:#ffffff;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+font-size:18px;
+line-height:1.8;
+position:relative;
+}
+.quote-box:before{
+content:"🌙";
+position:absolute;
+top:-18px;
+right:20px;
+font-size:32px;
+}
+.quote-title{
+font-weight:700;
+margin-bottom:6px;
+font-size:16px;
+opacity:.9;
+}
+
+footer{
+margin:30px 0 20px;
+font-size:14px;
+color:#e9fdf9
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="logo.png" alt="وزارة التعليم">
+<h1>إمساكية شهر رمضان المبارك</h1>
+<div class="date" id="date"></div>
+</header>
+
+<div class="card">
+<h2>مواقيت اليوم 🕌</h2>
+<div id="times"></div>
+</div>
+
+<div class="quote-box">
+<div class="quote-title">رسالة لأبنائنا الطلاب</div>
+رمضان شهر الجدّ والاجتهاد، وبالانتظام في الدراسة نصنع التميّز ونبني مستقبلًا مشرقًا بإذن الله.
+</div>
+
+<footer>
+© متوسطة محمد بن الهيثم بالحناكية – جميع الحقوق محفوظة
+</footer>
+
+<script>
+const ramadan={
+"2026-02-22":{"fajr":"5:31 ص","sunrise":"6:50 ص","dhuhr":"12:32 م","asr":"3:48 م","maghrib":"6:14 م","isha":"7:44 م"},
+"2026-02-23":{"fajr":"5:30 ص","sunrise":"6:48 ص","dhuhr":"12:32 م","asr":"3:48 م","maghrib":"6:15 م","isha":"7:45 م"},
+"2026-02-24":{"fajr":"5:29 ص","sunrise":"6:48 ص","dhuhr":"12:31 م","asr":"3:49 م","maghrib":"6:16 م","isha":"7:46 م"},
+"2026-02-25":{"fajr":"5:28 ص","sunrise":"6:47 ص","dhuhr":"12:31 م","asr":"3:49 م","maghrib":"6:16 م","isha":"7:46 م"}
+};
+
+const today=new Date();
+
+// تصحيح التاريخ الهجري (- يوم)
+const hijriFix=new Date(today);
+hijriFix.setDate(today.getDate()-1);
+
+const h=new Intl.DateTimeFormat('ar-SA-u-ca-islamic',{
+day:'numeric',month:'long',year:'numeric'}).format(hijriFix);
+
+document.getElementById("date").innerText=
+`${h} هـ | ${today.toLocaleDateString('ar-SA')}`;
+
+const g=today.toISOString().split("T")[0];
+const t=ramadan[g];
+const box=document.getElementById("times");
+box.innerHTML=t?
+`<div class="time"><span>الفجر</span><span>${t.fajr}</span></div>
+<div class="time"><span>الشروق</span><span>${t.sunrise}</span></div>
+<div class="time"><span>الظهر</span><span>${t.dhuhr}</span></div>
+<div class="time"><span>العصر</span><span>${t.asr}</span></div>
+<div class="time"><span>المغرب</span><span>${t.maghrib}</span></div>
+<div class="time"><span>العشاء</span><span>${t.isha}</span></div>`
+:"لا توجد بيانات لهذا اليوم";
+</script>
+
+</body>
+</html>
