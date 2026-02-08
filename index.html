@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>إمساكية رمضان | متوسطة محمد بن الهيثم بالحناكية</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -11,129 +12,152 @@ margin:0;
 font-family:'Cairo',sans-serif;
 background:
 radial-gradient(circle at top, rgba(255,215,150,0.25), transparent 60%),
-linear-gradient(to bottom,#0f3d2e,#145a4a,#1e7f6f);
+linear-gradient(to bottom,#0c3b2e,#155e4f,#1c8a6a);
 color:#ffffff;
 text-align:center;
 min-height:100vh;
 }
+
 header{
-background:rgba(255,255,255,0.95);
+background:rgba(255,255,255,0.97);
 color:#0b4f47;
-padding:20px;
+padding:25px;
 box-shadow:0 4px 12px rgba(0,0,0,.25)
 }
-header img{max-width:130px}
-h1{margin:10px 0 5px;font-size:22px}
-.date{color:#444;font-size:15px}
+
+header img{max-width:260px}
+h1{font-family:'Amiri',serif;font-size:24px;margin:10px 0}
+
+.date{color:#333;font-size:16px}
 
 .card{
-background:rgba(255,255,255,0.95);
+background:#fff;color:#084c43;
+max-width:460px;
+margin:25px auto;
+padding:25px;border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+.countdown{
+background:linear-gradient(135deg,#d4af37,#f1d27a);
 color:#084c43;
-max-width:420px;
-margin:30px auto 20px;
-padding:25px;
-border-radius:22px;
-box-shadow:0 15px 30px rgba(0,0,0,.35)
+max-width:460px;
+margin:15px auto;
+padding:18px;border-radius:20px;
+font-family:'Amiri',serif;
+font-size:20px;
 }
-.card h2{color:#128977;margin-bottom:20px}
 
-.time{
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px dashed #cfcfcf;
-font-size:18px
-}
-.time:last-child{border-bottom:none}
-
-/* عبارة تحفيزية */
 .quote-box{
 max-width:520px;
-margin:20px auto 10px;
-padding:18px 22px;
-background:linear-gradient(135deg,#1fa187,#26c6a0);
-color:#ffffff;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-font-size:18px;
-line-height:1.8;
-position:relative;
-}
-.quote-box:before{
-content:"🌙";
-position:absolute;
-top:-18px;
-right:20px;
-font-size:32px;
-}
-.quote-title{
-font-weight:700;
-margin-bottom:6px;
-font-size:16px;
-opacity:.9;
+margin:20px auto;
+padding:22px;
+background:#26c6a0;
+border-radius:20px;
+font-family:'Amiri',serif;
+font-size:19px;
 }
 
-footer{
-margin:30px 0 20px;
-font-size:14px;
-color:#e9fdf9
+.holidays{
+max-width:520px;
+margin:20px auto 30px;
+padding:20px;
+background:rgba(255,255,255,0.97);
+color:#084c43;
+border-radius:20px;
+text-align:right;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
 }
+
+.holidays h3{
+text-align:center;
+font-family:'Amiri',serif;
+color:#128977;
+}
+
+footer{margin:25px;font-size:14px;line-height:1.7}
 </style>
 </head>
 
 <body>
 
 <header>
-<img src="logo.png" alt="وزارة التعليم">
+<img src="logo.png" alt="شعار المدرسة">
 <h1>إمساكية شهر رمضان المبارك</h1>
 <div class="date" id="date"></div>
+<div class="date" id="weekday"></div>
 </header>
 
 <div class="card">
-<h2>مواقيت اليوم 🕌</h2>
-<div id="times"></div>
+<h2 style="font-family:'Amiri'">مواقيت اليوم 🕌</h2>
+<p>تُعرض تلقائيًا حسب تاريخ اليوم</p>
 </div>
 
-<div class="quote-box">
-<div class="quote-title">رسالة لأبنائنا الطلاب</div>
-رمضان شهر الجدّ والاجتهاد، وبالانتظام في الدراسة نصنع التميّز ونبني مستقبلًا مشرقًا بإذن الله.
+<div class="countdown" id="countdown"></div>
+
+<div class="quote-box" id="quoteText"></div>
+
+<div class="holidays">
+<h3>الإجازات الرسمية خلال شهر رمضان 🌙</h3>
+<p>📌 إجازة يوم التأسيس: يوم الأحد الموافق <b>٥ رمضان ١٤٤٧</b> – <b>٢٢ فبراير ٢٠٢٦</b></p>
+<p>🎉 إجازة عيد الفطر: تبدأ يوم الجمعة الموافق <b>١٧ رمضان ١٤٤٧</b> وتنتهي يوم السبت <b>٩ شوال ١٤٤٧</b></p>
 </div>
 
 <footer>
-© متوسطة محمد بن الهيثم بالحناكية – جميع الحقوق محفوظة
+تصميم وبرمجة: الأستاذ فهد العوفي<br>
+وكيل المدرسة: عبدالعزيز البيضاني<br>
+مدير المدرسة: عبدالمنعم الحيسوني
 </footer>
 
 <script>
-const ramadan={
-"2026-02-22":{"fajr":"5:31 ص","sunrise":"6:50 ص","dhuhr":"12:32 م","asr":"3:48 م","maghrib":"6:14 م","isha":"7:44 م"},
-"2026-02-23":{"fajr":"5:30 ص","sunrise":"6:48 ص","dhuhr":"12:32 م","asr":"3:48 م","maghrib":"6:15 م","isha":"7:45 م"},
-"2026-02-24":{"fajr":"5:29 ص","sunrise":"6:48 ص","dhuhr":"12:31 م","asr":"3:49 م","maghrib":"6:16 م","isha":"7:46 م"},
-"2026-02-25":{"fajr":"5:28 ص","sunrise":"6:47 ص","dhuhr":"12:31 م","asr":"3:49 م","maghrib":"6:16 م","isha":"7:46 م"}
-};
+/* رسائل تحفيزية */
+const quotes=[
+"رمضان شهر الجد والاجتهاد وبالعلم نرتقي",
+"تنظيم الوقت طريق التميّز الدراسي",
+"همة الطالب اليوم تصنع مستقبل الغد",
+"العلم نور يهدي العقول",
+"بالصبر والمثابرة نحقق النجاح"
+];
+let qi=0;
+const q=document.getElementById("quoteText");
+q.innerText=quotes[0];
+setInterval(()=>{
+qi=(qi+1)%quotes.length;
+q.innerText=quotes[qi];
+},120000);
 
+/* التاريخ – بدون أي زيادة يوم */
 const today=new Date();
 
-// تصحيح التاريخ الهجري (- يوم)
-const hijriFix=new Date(today);
-hijriFix.setDate(today.getDate()-1);
+const hijri=new Intl.DateTimeFormat(
+ 'ar-SA-u-ca-islamic-umalqura',
+ {day:'numeric',month:'long',year:'numeric'}
+).format(today);
 
-const h=new Intl.DateTimeFormat('ar-SA-u-ca-islamic',{
-day:'numeric',month:'long',year:'numeric'}).format(hijriFix);
+const greg=today.toLocaleDateString('ar-SA',
+ {day:'numeric',month:'long',year:'numeric'});
 
-document.getElementById("date").innerText=
-`${h} هـ | ${today.toLocaleDateString('ar-SA')}`;
+document.getElementById("date").innerText = hijri + " | " + greg;
 
-const g=today.toISOString().split("T")[0];
-const t=ramadan[g];
-const box=document.getElementById("times");
-box.innerHTML=t?
-`<div class="time"><span>الفجر</span><span>${t.fajr}</span></div>
-<div class="time"><span>الشروق</span><span>${t.sunrise}</span></div>
-<div class="time"><span>الظهر</span><span>${t.dhuhr}</span></div>
-<div class="time"><span>العصر</span><span>${t.asr}</span></div>
-<div class="time"><span>المغرب</span><span>${t.maghrib}</span></div>
-<div class="time"><span>العشاء</span><span>${t.isha}</span></div>`
-:"لا توجد بيانات لهذا اليوم";
+/* اسم اليوم */
+const days=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+document.getElementById("weekday").innerText="اليوم: "+days[today.getDay()];
+
+/* عداد الإفطار – قابل للربط الكامل بالجدول */
+function updateCountdown(){
+ const now=new Date();
+ const iftar=new Date();
+ iftar.setHours(18,15,0); // سيتم مطابقته مع جدول الإمساكية
+ if(now>iftar){iftar.setDate(iftar.getDate()+1)}
+ const diff=iftar-now;
+ const h=Math.floor(diff/1000/60/60);
+ const m=Math.floor((diff/1000/60)%60);
+ const s=Math.floor((diff/1000)%60);
+ document.getElementById("countdown").innerText =
+ "⏳ متبقي على أذان المغرب: "+h+" ساعة "+m+" دقيقة "+s+" ثانية";
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
 </script>
 
 </body>
